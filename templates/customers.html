@@ -1,0 +1,38 @@
+{% extends "children_page_table_of_db.html" %}
+
+{% block head_title %}
+Заказчики
+{% endblock %}
+
+{% block body_continue %}
+<table id="data"
+       class="table table-striped"
+       border="1"
+       style="border-collapse: collapse"
+       align="center">
+    <thead>
+    <tr>
+        <th>ID Заказчика</th>
+        <th>Контакты</th>
+        <th>Выполненные платежи</th>
+        <th>Долг за воду</th>
+        <th>Долг за интернет</th>
+        <th>Долг за отопление</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for c in json_data %}
+    <tr>
+        <td>{{c.id}}</td>
+        <td><a href="http://127.0.0.1:5000/contacts/{{c.contact.id}}">
+            *тык*
+        </a></td>
+        <td>{{c.completed_payments}}</td>
+        <td>{{c.water_debt}}</td>
+        <td>{{c.internet_debt}}</td>
+        <td>{{c.warm_debt}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

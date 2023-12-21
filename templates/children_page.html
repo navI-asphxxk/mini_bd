@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block body %}
+<style>
+  .button-link {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #4CAF50; /* Цвет фона кнопки */
+    color: black; /* Цвет текста на кнопке */
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+
+  }
+</style>
+
+    <p style="text-align: right">
+        <a href="http://127.0.0.1:5000" class="button-link">
+            ←
+         </a>
+    </p>
+
+    {% block table_title %}{% endblock %}
+
+    {% block body_continue %}{% endblock %}
+{% endblock %}

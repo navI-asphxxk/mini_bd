@@ -1,0 +1,40 @@
+{% extends "children_page_table_of_db.html" %}
+
+{% block head_title %}
+Исполнители
+{% endblock %}
+
+{% block body_continue %}
+<table id="data"
+       class="table table-striped"
+       border="1"
+       style="border-collapse: collapse"
+       align="center">
+    <thead>
+    <tr>
+        <th>ID Исполнителя</th>
+        <th>Контакты</th>
+        <th>Работа</th>
+        <th>Выполненные работы</th>
+        <th>Рейтинг</th>
+        <th>Опыт работы (лет)</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for e in json_data %}
+    <tr>
+        <td>{{e.id}}</td>
+        <td><a href="http://127.0.0.1:5000/contacts/{{e.contact.id}}">
+            *тык*
+        </a></td>
+        <td><a href="http://127.0.0.1:5000/issues/{{e.issues.id}}">
+            *тык*
+        </a></td>
+        <td>{{e.completed_works}}</td>
+        <td>{{e.rating}}</td>
+        <td>{{e.time_working}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "children_page_table_of_db.html" %}
+
+{% block head_title %}
+Запросы на работу
+{% endblock %}
+
+{% block body_continue %}
+<table id="data"
+       class="table table-striped"
+       border="1"
+       style="border-collapse: collapse"
+       align="center">
+    <thead>
+    <tr>
+        <th>ID Контакта</th>
+        <th>ФИО</th>
+        <th>Телефон</th>
+        <th>Адрес</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for c in json_data %}
+    <tr>
+        <td>{{c.id}}</td>
+        <td>{{c.fcs}}</td>
+        <td>{{c.phone}}</td>
+        <td>{{c.address}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

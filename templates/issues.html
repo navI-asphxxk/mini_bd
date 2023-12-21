@@ -1,0 +1,34 @@
+{% extends "children_page_table_of_db.html" %}
+
+{% block head_title %}
+Запросы на работу
+{% endblock %}
+
+{% block body_continue %}
+<table id="data"
+       class="table table-striped"
+       border="1"
+       style="border-collapse: collapse"
+       align="center">
+    <thead>
+    <tr>
+        <th>ID Работы</th>
+        <th>Заказчик</th>
+        <th>Работа</th>
+        <th>Контракт</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in json_data %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td><a href="http://127.0.0.1:5000/customers/{{i.customer.id}}">
+            *тык*
+        </a></td>
+        <td>{{i.job}}</td>
+        <td>{{i.contract}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
